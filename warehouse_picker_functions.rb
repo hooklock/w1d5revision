@@ -45,7 +45,7 @@ def item_at_bay(bay)
   return item*"" 
 end
 
-def bay_of_item()
+def bay_of_item(item)
   bay = []
   for x in WAREHOUSE
       if x[:product] == "nail filer"
