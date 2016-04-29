@@ -44,3 +44,16 @@ def item_at_bay(bay)
  end 
   return item*"" 
 end
+
+def bay_of_item()
+  bay = []
+  for x in WAREHOUSE
+      if x[:product] == "nail filer"
+        bay << x[:bay]
+      end
+  end
+  return bay*""
+end
+
+
+
