@@ -2,36 +2,45 @@ require 'pry-byebug'
 
 WAREHOUSE = [
 
-{
-  a10: "rubber band",
-  a9: "glow stick",
-  a8: "model car",
-  a7: "bookmark",
-  a6: "shovel",
-  a5: "rubber duck",
-  a4: "hanger",
-  a3: "blouse",
-  a2: "stop sign",
-  a1: "needle",
-  c1: "rusty nail",
-  c2: "drill press",
-  c3: "chalk",
-  c4: "word search",
-  c5: "thermometer",
-  c6: "face wash",
-  c7: "paint brush",
-  c8: "candy wrapper",
-  c9: "shoe lace",
-  c10: "leg warmers",
-  b1: "tyre swing",
-  b2: "sharpie",
-  b3: "picture frame",
-  b4: "photo album",
-  b5: "nail filer",
-  b6: "tooth paste",
-  b7: "bath fizzers",
-  b8: "tissue box",
-  b9: "deodorant",
-  b10: "cookie jar"
-}
+{ bay: "a10", product: "rubber band"},
+{ bay: "a9", product: "glow stick"},
+{ bay: "a8", product: "model car"},
+{ bay: "a7", product: "bookmark"},
+{ bay: "a6", product: "shovel"},
+{ bay: "a5", product: "rubber duck"},
+{ bay: "a4", product: "hanger"},
+{ bay: "a3", product: "blouse"},
+{ bay: "a2", product: "stop sign"},
+{ bay: "a1", product: "needle"},
+{ bay: "c1", product: "rusty nail"},
+{ bay: "c2", product: "drill press"},
+{ bay: "c3", product: "chalk"},
+{ bay: "c4", product: "word search"},
+{ bay: "c5", product: "thermometer"},
+{ bay: "c6", product: "face wash"},
+{ bay: "c7", product: "paint brush"},
+{ bay: "c8", product: "candy wrapper"},
+{ bay: "c9", product: "shoe lace"},
+{ bay: "c10", product: "leg warmers"},
+{ bay: "b1", product: "tyre swing"},
+{ bay: "b2", product: "sharpie"},
+{ bay: "b3", product: "picture frame"},
+{ bay: "b4", product: "photo album"},
+{ bay: "b5", product: "nail filer"},
+{ bay: "b6", product: "tooth paste"},
+{ bay: "b7", product: "bath fizzers"},
+{ bay: "b8", product: "tissue box"},
+{ bay: "b9", product: "deodorant"},
+{ bay: "b10", product: "cookie jar"}
+
 ]
+
+def item_at_bay(bay) 
+ item = []
+ for x in WAREHOUSE
+  if x[:bay] == "b5"
+    item << x[:product]
+  end
+ end 
+  return item*"" 
+end
