@@ -2,57 +2,81 @@ require 'pry-byebug'
 
 WAREHOUSE = [
 
-{ bay: "a10", product: "rubber band"},
-{ bay: "a9", product: "glow stick"},
-{ bay: "a8", product: "model car"},
-{ bay: "a7", product: "bookmark"},
-{ bay: "a6", product: "shovel"},
-{ bay: "a5", product: "rubber duck"},
-{ bay: "a4", product: "hanger"},
-{ bay: "a3", product: "blouse"},
-{ bay: "a2", product: "stop sign"},
-{ bay: "a1", product: "needle"},
-{ bay: "c1", product: "rusty nail"},
-{ bay: "c2", product: "drill press"},
-{ bay: "c3", product: "chalk"},
-{ bay: "c4", product: "word search"},
-{ bay: "c5", product: "thermometer"},
-{ bay: "c6", product: "face wash"},
-{ bay: "c7", product: "paint brush"},
-{ bay: "c8", product: "candy wrapper"},
-{ bay: "c9", product: "shoe lace"},
-{ bay: "c10", product: "leg warmers"},
-{ bay: "b1", product: "tyre swing"},
-{ bay: "b2", product: "sharpie"},
-{ bay: "b3", product: "picture frame"},
-{ bay: "b4", product: "photo album"},
-{ bay: "b5", product: "nail filer"},
-{ bay: "b6", product: "tooth paste"},
-{ bay: "b7", product: "bath fizzers"},
-{ bay: "b8", product: "tissue box"},
-{ bay: "b9", product: "deodorant"},
-{ bay: "b10", product: "cookie jar"}
+{ a10: "rubber band"},
+{ a9: "glow stick"},
+{ a8: "model car"},
+{ a7: "bookmark"},
+{ a6: "shovel"},
+{ a5: "rubber duck"},
+{ a4: "hanger"},
+{ a3: "blouse"},
+{ a2: "stop sign"},
+{ a1: "needle"},
+{ c1: "rusty nail"},
+{ c2: "drill press"},
+{ c3: "chalk"},
+{ c4: "word search"},
+{ c5: "thermometer"},
+{ c6: "face wash"},
+{ c7: "paint brush"},
+{ c8: "candy wrapper"},
+{ c9: "shoe lace"},
+{ c10: "leg warmers"},
+{ b1: "tyre swing"},
+{ b2: "sharpie"},
+{ b3: "picture frame"},
+{ b4: "photo album"},
+{ b5: "nail filer"},
+{ b6: "tooth paste"},
+{ b7: "bath fizzers"},
+{ b8: "tissue box"},
+{ b9: "deodorant"},
+{ b10: "cookie jar"}
 
 ]
 
+#Task 1:
+# Given a bay ("b5"), return the item in that bay ("nail filer")
+
 def item_at_bay(bay) 
- item = []
- for x in WAREHOUSE
-  if x[:bay] == "b5"
-    item << x[:product]
+ for item in WAREHOUSE
+  if item.key?(bay.to_sym)
+  return item[bay.to_sym]
   end
- end 
-  return item*"" 
+ end
 end
 
+#Task 2:
+# Given an item ("nail filer"), return the bay that it is in ("b5")
+
 def bay_of_item(item)
-  bay = []
-  for x in WAREHOUSE
-      if x[:product] == "nail filer"
-        bay << x[:bay]
-      end
+  for bay in WAREHOUSE
+    if bay.has_value?(item)
+    return bay.key(item).to_s
+    end
   end
-  return bay*""
+end
+
+#Task 3:
+# Given a list of bays ("b5, b10 and b6"), return the items in those bays ("nail filer, cookie jar, tooth paste")
+
+def items_at_bays(bays)
+  items = []
+  for bay in bays
+    items << item_at_bay(bay.to_sym)  
+  end
+  return items
+end
+
+#Task 4:
+#Given a list of items ("shoe lace", "rusty nail", "leg warmers"), find the bays ("c1", "c9", "c10")
+
+def bays_of_items(items)
+  bays = []
+  for item in items
+    bays << bay_of_item(item)
+  end
+  return bays
 end
 
 
