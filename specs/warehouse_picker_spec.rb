@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/rg'
 require_relative '../warehouse_picker_functions.rb'
 
 class TestWarehouse <Minitest::Test
@@ -26,5 +27,25 @@ class TestWarehouse <Minitest::Test
     bays = bays_of_items(['rusty nail', 'shoe lace', 'leg warmers'])
     assert_equal(['c1', 'c9', 'c10'], bays)
   end
+
+  #NB: Test 3 & 4 - passing the values through in an array allows for a single parameter in the function (Tks Seumus)
+
+  #Test for task 5 (Tks Seumus)
+
+  def test_distance_between_bays
+      items = distance_between_bays(["b5", "b10","b6"])
+      assert_equal(5, items)
+      items = distance_between_bays(["b3", "c7","c9","a3"])
+      assert_equal(15, items)
+  end
+
+  #Test for task 6 (Tks Seumus)
+
+  def test_collection_order
+      items = collection_order(["shoe lace","rusty nail","leg warmers"])
+      assert_equal(["c1", "c9", "c10"], items)
+      items = collection_order(["hanger","deodorant","candy wrapper", "rubber band"])
+      assert_equal(["a10","a4","c8","b9"], items)
+    end
 
 end 

@@ -79,5 +79,60 @@ def bays_of_items(items)
   return bays
 end
 
+#Seamus's Sub Method (SM1) to find the index of an item given the key
+def find_index(bay)
+  for b in WAREHOUSE
+    if b.key?(bay.to_sym)
+      return WAREHOUSE.index(b)
+    end
+  end
+end
+
+#Seamus's Sub Method (SM2) to find the index of an item given the value
+def find_index_at_value(item)
+  for hash in WAREHOUSE
+    if hash.has_value?(item)
+      return WAREHOUSE.index(hash)
+    end
+  end
+end
+
+#Task 5(Tks Seumus):
+#Given a list of bays ("b5", "b10", "b6") && ("b3", "c7", "c9", "a3"), list the items and determine they are 5 and 15 bays apart respectively.
+#NB - solution calls SM1, returns distance only - combine 3 & 5 Specs and Functions?
+
+def distance_between_bays(bays)
+  indexes = []
+  for bay in bays
+    indexes << find_index(bay)
+  end
+  min_max = indexes.minmax
+  return min_max[1] - min_max[0]
+end
+
+#Task 6(Tks Seumus)
+#Given a list of products ("shoe lace", "rusty nail", "leg warmers") && ("hanger", "deodorant", "candy wrapper", rubber band"), find the bays that need to be visited in order from Entrance to Exit i.e. ("c1", "c9", "c10") && ("a10", "a4", "c8", "b9")
+#NB - solution calls SM2, returns order only - combine 4 & 6 Specs and Functions?
+
+def collection_order(items)
+
+ item_indexes = []
+ collection_order = []
+
+ for item in items
+     item_indexes << find_index_at_value(item)
+ end
+
+ sorted_indexes = item_indexes.sort
+
+ for index in sorted_indexes
+   collection_order = collection_order << WAREHOUSE[index].keys[0].to_s
+ end
+
+return collection_order
+
+end
+
+
 
 
