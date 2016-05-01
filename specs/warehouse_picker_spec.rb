@@ -34,9 +34,9 @@ class TestWarehouse <Minitest::Test
 
   def test_distance_between_bays
       items = distance_between_bays(["b5", "b10","b6"])
-      assert_equal(5, items)
-      items = distance_between_bays(["b3", "c7","c9","a3"])
-      assert_equal(15, items)
+      distance = distance_between_bays(["b5", "b10","b6"])
+      assert_equal(["nail filer", "cookie jar", "tooth paste"], items[0])
+      assert_equal(5, distance[1])
   end
 
   #Test for task 6 (Tks Seumus)

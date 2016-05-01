@@ -99,20 +99,22 @@ end
 
 #Task 5(Tks Seumus):
 #Given a list of bays ("b5", "b10", "b6") && ("b3", "c7", "c9", "a3"), list the items and determine they are 5 and 15 bays apart respectively.
-#NB - solution calls SM1, returns distance only - combine 3 & 5 Specs and Functions?
+#NB - solution calls SM1, returns results for one set of values only (Tks Chris & Bethany)
 
 def distance_between_bays(bays)
+  items = []
   indexes = []
   for bay in bays
+    items << item_at_bay(bay.to_sym)
     indexes << find_index(bay)
   end
   min_max = indexes.minmax
-  return min_max[1] - min_max[0]
+  return items, min_max[1] - min_max[0]
 end
 
 #Task 6(Tks Seumus)
 #Given a list of products ("shoe lace", "rusty nail", "leg warmers") && ("hanger", "deodorant", "candy wrapper", rubber band"), find the bays that need to be visited in order from Entrance to Exit i.e. ("c1", "c9", "c10") && ("a10", "a4", "c8", "b9")
-#NB - solution calls SM2, returns order only - combine 4 & 6 Specs and Functions?
+#NB - solution calls SM2.
 
 def collection_order(items)
 
